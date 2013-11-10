@@ -6,6 +6,8 @@ This module lets you use the Node.js [net](http://nodejs.org/api/net.html) (TCP)
 
 Instead of learning the quirks of Chrome's `chrome.socket` API for networking in Chrome Apps just **use the higher-level node API you're familiar with**. Then, compile your code with [browserify](https://github.com/substack/node-browserify) and you're all set!
 
+This is a meta-package that just wraps [chrome-dgram](https://github.com/feross/chrome-dgram) and [chrome-net](https://github.com/feross/chrome-net).
+
 This module is used by [webtorrent](https://github.com/feross/webtorrent).
 
 ## Installation
@@ -74,7 +76,7 @@ sock.on('message', function (data, rInfo) {
 
 ```
 
-See nodejs.org for full API documentation: [net](http://nodejs.org/api/net.html)& [dgram](http://nodejs.org/api/dgram.html)
+See nodejs.org for full API documentation: [net](http://nodejs.org/api/net.html) & [dgram](http://nodejs.org/api/dgram.html)
 
 ## Contributing
 

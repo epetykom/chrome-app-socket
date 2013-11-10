@@ -1,5 +1,5 @@
 // UDP
-exports.dgram = require('./lib/dgram')
+exports.dgram = require('chrome-dgram')
 
 // TCP
-exports.net = require('./lib/net')
+exports.net = require('chrome-net')

@@ -4,23 +4,12 @@
   "description": "Chrome App Sockets (TCP/UDP) made easy!",
   "main": "index.js",
   "dependencies": {
-    "bops": "0.x",
-    "core-util-is": "1.x"
+    "chrome-dgram": "~1.0.0",
+    "chrome-net": "~1.0.0"
   },
-  "devDependencies": {
-    "browserify": "2.x",
-    "envify": "0.x",
-    "once": "1.x",
-    "portfinder": "0.x",
-    "tape": "2.x",
-    "async": "0.x",
-    "through": "~2.3.4"
-  },
-  "browser": {
-    "buffer": false
-  },
+  "devDependencies": {},
   "scripts": {
-    "test": "tape test/*.js"
+    "test": "echo \"Tests live in the submodules\" && exit 0"
   },
   "repository": {
     "type": "git",
@@ -31,7 +20,9 @@
     "chrome.socket",
     "socket api",
     "tcp",
+    "net",
     "udp",
+    "dgram",
     "wrapper",
     "client",
     "server"
