@@ -8,10 +8,9 @@ var client = net.createConnection({
   host: '127.0.0.1'
 })
 
-// If any errors are emitted, send them to the server to cause tests to fail
+// If any errors are emitted, log them
 client.on('error', function (err) {
-  console.log(err.stack)
-  client.write(err.message)
+  console.error(err.stack)
 })
 
 client.on('data', function (data) {

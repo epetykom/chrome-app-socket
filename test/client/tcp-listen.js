@@ -9,12 +9,15 @@ var server = net.createServer()
 
 // If any errors are emitted, log them
 server.on('error', function (err) {
-  console.log(err.stack)
+  console.error(err.stack)
 })
 
 server.on('listening', function () {
   // Report to node that the TCP server is listening
   var readySock = dgram.createSocket('udp4')
+  readySock.on('error', function (err) {
+    console.error(err.stack)
+  })
   readySock.send('listening', 0, 'listening'.length, READY_PORT, '127.0.0.1')
 })
 
