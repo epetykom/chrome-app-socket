@@ -9,7 +9,6 @@ var server = net.createServer()
 
 // If any errors are emitted, log them
 server.on('error', function (err) {
-  console.error(err)
   console.log(err.stack)
 })
 

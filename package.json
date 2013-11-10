@@ -13,7 +13,11 @@
     "once": "1.x",
     "portfinder": "0.x",
     "tape": "2.x",
-    "async": "0.x"
+    "async": "0.x",
+    "through": "~2.3.4"
+  },
+  "browser": {
+    "buffer": false
   },
   "scripts": {
     "test": "tape test/*.js"

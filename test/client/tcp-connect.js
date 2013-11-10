@@ -10,12 +10,9 @@ var client = net.createConnection({
 
 // If any errors are emitted, send them to the server to cause tests to fail
 client.on('error', function (err) {
-  console.error(err)
   console.log(err.stack)
-  // client.write(err.message)
+  client.write(err.message)
 })
-
-client.write('beep')
 
 client.on('data', function (data) {
   if (bops.to(data) === 'boop') {
@@ -24,3 +21,16 @@ client.on('data', function (data) {
     client.write('fail')
   }
 })
+
+client.write('beep')
+
+// TODO:
+// - test bytesWritten
+// - test bytesRead
+
+
+// streaming
+// var through = require('through')
+// client.pipe(through(function (data) {
+//   console.log(bops.to(data))
+// }))
