@@ -74,7 +74,7 @@ sock.on('message', function (data, rInfo) {
 
 ```
 
-See nodejs.org for full API documentation: [net](http://nodejs.org/api/net.html) (TCP) [dgram](http://nodejs.org/api/dgram.html).
+See nodejs.org for full API documentation: [net](http://nodejs.org/api/net.html)& [dgram](http://nodejs.org/api/dgram.html)
 
 ## Contributing
 
