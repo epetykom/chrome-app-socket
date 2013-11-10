@@ -1,6 +1,6 @@
 {
   "name": "chrome-app-socket",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Chrome App Sockets (TCP/UDP) made easy!",
   "main": "index.js",
   "dependencies": {
