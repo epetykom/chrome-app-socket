@@ -1,7 +1,12 @@
 chrome-app-socket
 ==========
+### Chrome App Sockets (TCP/UDP) made easy!
 
-Chrome App Sockets (TCP/UDP) made easy! The module simplifies working with the `chrome.socket` API for networking in Chrome Apps.
+This module lets you use the Node.js [net](http://nodejs.org/api/net.html) (TCP) and [dgram](http://nodejs.org/api/dgram.html) (UDP) APIs in [Chrome Packaged Apps](http://developer.chrome.com/apps/about_apps.html).
+
+Instead of learning the quirks of Chrome's `chrome.socket` API for networking in Chrome Apps just **use the higher-level node API you're familiar with**. Then, compile your code with [browserify](https://github.com/substack/node-browserify) and you're all set!
+
+This module is used by [webtorrent](https://github.com/feross/webtorrent).
 
 ## Installation
 
@@ -9,11 +14,67 @@ Chrome App Sockets (TCP/UDP) made easy! The module simplifies working with the `
 
 ## Usage
 
+Use node's `net` and `dgram` APIs, including all parameter list shorthands and variations.
+
+Example TCP client:
+
 ```js
-var socket = require('chrome-app-socket')
+var net = require('chrome-app-socket').net
+
+var client = net.createConnection({
+  port: 1337,
+  host: '127.0.0.1'
+})
+
+client.write('beep')
+
+client.on('data', function (data) {
+  console.log(data)
+})
+
+// .pipe() streaming API works too!
+
 ```
 
-See the `/test/client` folder for usage examples.
+Example TCP server:
+
+```js
+var net = require('chrome-app-socket').net
+
+var server = net.createServer()
+
+server.on('listening', function () {
+  console.log('listening')
+})
+
+server.on('connection', function (sock) {
+  console.log('Connection from ' + sock.remoteAddress + ':' + sock.remotePort)
+  sock.on('data', function (data) {
+    console.log(data)
+  })
+})
+
+server.listen(1337)
+
+```
+
+Example UDP client/bind:
+
+```js
+var dgram = require('chrome-app-socket').dgram
+
+var sock = dgram.createSocket('udp4')
+
+sock.send('beep', 0, 'beep'.length, 1337, '127.0.0.1')
+
+sock.on('message', function (data, rInfo) {
+  console.log('Got data from ' + rInfo.address + ':' + rInfo.port)
+  console.log(data)
+})
+
+```
+
+See nodejs.org for full API documentation: [net](http://nodejs.org/api/net.html) (TCP) [dgram](http://nodejs.org/api/dgram.html).
 
 ## Contributing
 
